@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JAYMEE — Direction artistique</title>
+<style>
+:root{--bg:#11110f;--fg:#f0eee6;--accent:#d9ff53}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Arial,Helvetica,sans-serif}
+header{padding:24px 5%;border-bottom:1px solid #444;display:flex;justify-content:space-between;align-items:center}
+header b{letter-spacing:2px}
+nav a{color:var(--fg);text-decoration:none;margin-left:20px;font-size:12px}
+.hero{min-height:70vh;display:flex;align-items:center;padding:8% 5%}
+h1{font-size:clamp(48px,9vw,145px);line-height:1.02;letter-spacing:-.07em;margin:0;font-weight:900}
+h1 em{color:var(--accent)}
+section.chapter{padding:85px 5%;border-top:1px solid #444}
+.chapter-head{display:grid;grid-template-columns:85px 1fr;gap:20px;margin-bottom:35px}
+.number{color:var(--accent);font-size:14px}
+h2{font-size:clamp(36px,6vw,90px);line-height:1;letter-spacing:-.06em;margin:0;max-width:1100px}
+.videos{margin-left:105px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.video{padding:12px;background:#1b1b18;border:1px solid #46453f}
+iframe{display:block;width:100%;aspect-ratio:16/9;border:0;background:#222}
+small{display:block;color:#aaa;margin:13px 0 6px;letter-spacing:1px}
+.video a{color:var(--accent);font-size:13px}
+footer{padding:35px 5%;color:#aaa;font-size:12px}
+@media(max-width:700px){
+nav{display:none}
+.hero{min-height:60vh}
+.chapter-head{grid-template-columns:1fr}
+.videos{margin-left:0;grid-template-columns:1fr}
+section.chapter{padding:60px 5%}
+}
+</style>
+</head>
+<body>
+<header>
+<b>JAYMEE®</b>
+<nav>
+<a href="#axe1">01</a>
+<a href="#axe2">02</a>
+<a href="#axe3">03</a>
+</nav>
+</header>
+
+<main>
+<div class="hero">
+<h1>LE SON DIT <em>OUI.</em><br>L’IMAGE DIT <em>NON.</em></h1>
+</div>
+
+<section class="chapter" id="axe1">
+<div class="chapter-head">
+<span class="number">01 / 03</span>
+<h2>QUAND LE CLIP NE VA PAS AVEC LA MUSIQUE.</h2>
+</div>
+<div class="videos">
+<div class="video">
+<iframe src="https://www.youtube-nocookie.com/embed/gEen7iZ8ROA" allowfullscreen></iframe>
+<small>RÉFÉRENCE 01</small>
+<a href="https://www.youtube.com/watch?v=gEen7iZ8ROA" target="_blank">Ouvrir sur YouTube ↗</a>
+</div>
+<div class="video">
+<iframe src="https://www.youtube-nocookie.com/embed/pvxQAI62HsU" allowfullscreen></iframe>
+<small>RÉFÉRENCE 02</small>
+<a href="https://www.youtube.com/watch?v=pvxQAI62HsU" target="_blank">Ouvrir sur YouTube ↗</a>
+</div>
+</div>
+</section>
+
+<section class="chapter" id="axe2">
+<div class="chapter-head">
+<span class="number">02 / 03</span>
+<h2>LE CONTRASTE VOCAL AVEC L'IMAGE.</h2>
+</div>
+<div class="videos">
+<div class="video">
+<iframe src="https://www.youtube-nocookie.com/embed/jo1ikmeLUVE" allowfullscreen></iframe>
+<small>RÉFÉRENCE 03</small>
+<a href="https://www.youtube.com/watch?v=jo1ikmeLUVE" target="_blank">Ouvrir sur YouTube ↗</a>
+</div>
+</div>
+</section>
+
+<section class="chapter" id="axe3">
+<div class="chapter-head">
+<span class="number">03 / 03</span>
+<h2>LE CONTRASTE DU PERSONNAGE AVEC LE CONTEXTE.</h2>
+</div>
+<div class="videos">
+<div class="video">
+<iframe src="https://www.youtube-nocookie.com/embed/1XzY2ij_vL4" allowfullscreen></iframe>
+<small>RÉFÉRENCE 04</small>
+<a href="https://www.youtube.com/watch?v=1XzY2ij_vL4" target="_blank">Ouvrir sur YouTube ↗</a>
+</div>
+</div>
+</section>
+</main>
+
+<footer>JAYMEE — DIRECTION ARTISTIQUE</footer>
+</body>
+</html>

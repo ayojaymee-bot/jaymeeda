@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>JAYMEE — Direction artistique</title>
+<title>JAYMEE — Direction Artistique</title>
 
 <style>
 :root {
@@ -24,8 +24,6 @@ body {
   color: var(--fg);
   font-family: Arial, Helvetica, sans-serif;
 }
-
-button, a { -webkit-tap-highlight-color: transparent; }
 
 header {
   position: sticky;
@@ -147,19 +145,22 @@ small {
   letter-spacing: 1px;
 }
 
-.video a {
+.video a,
+.reference-link {
   color: var(--accent);
   font-size: 13px;
+  text-decoration: none;
 }
 
-/* SECTION VISUELLE */
+.video a:hover,
+.reference-link:hover {
+  text-decoration: underline;
+}
+
+/* PAGE VISUEL */
 
 .visual-hero {
-  padding: 110px 5% 70px;
-}
-
-.visual-hero h1 {
-  margin-top: 15px;
+  padding: 110px 5% 90px;
 }
 
 .visual-intro {
@@ -169,25 +170,33 @@ small {
   font-weight: bold;
 }
 
-.film-section {
-  padding: 40px 5% 100px;
+.visual-hero h1 {
+  margin-top: 15px;
 }
 
-.film-title {
-  font-size: clamp(30px, 5vw, 65px);
-  letter-spacing: -.05em;
-  margin-bottom: 35px;
+.reference-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 30px 105px;
 }
 
-/* Pellicule cinéma */
+.reference-tags span {
+  border: 1px solid #666;
+  padding: 10px 15px;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+/* EFFET PELLICULE */
 
 .filmstrip {
   position: relative;
+  margin: 0 0 30px 105px;
   background: #050505;
-  padding: 30px 0;
+  padding: 28px 0;
+  border: 1px solid #444;
   overflow: hidden;
-  border-top: 1px solid #555;
-  border-bottom: 1px solid #555;
 }
 
 .filmstrip::before,
@@ -196,22 +205,21 @@ small {
   position: absolute;
   left: 0;
   width: 100%;
-  height: 15px;
-  background:
-    repeating-linear-gradient(
-      90deg,
-      transparent 0px,
-      transparent 18px,
-      #bbb 18px,
-      #bbb 32px,
-      transparent 32px,
-      transparent 52px
-    );
+  height: 13px;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0px,
+    transparent 18px,
+    #bbb 18px,
+    #bbb 32px,
+    transparent 32px,
+    transparent 52px
+  );
   opacity: .65;
 }
 
-.filmstrip::before { top: 7px; }
-.filmstrip::after { bottom: 7px; }
+.filmstrip::before { top: 6px; }
+.filmstrip::after { bottom: 6px; }
 
 .film-frames {
   display: grid;
@@ -221,54 +229,67 @@ small {
 }
 
 .film-frame {
-  position: relative;
   aspect-ratio: 16/10;
-  overflow: hidden;
-  background: #222;
+  background: #25251f;
   border: 2px solid #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
 }
 
-.film-frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: contrast(1.12) saturate(.75);
-  transition: transform .5s, filter .5s;
-}
-
-.film-frame:hover img {
-  transform: scale(1.05);
-  filter: contrast(1.1) saturate(1);
+.film-frame strong {
+  font-size: clamp(15px, 2.5vw, 35px);
+  text-align: center;
+  letter-spacing: -1px;
+  padding: 15px;
 }
 
 .frame-number {
   position: absolute;
-  bottom: 10px;
-  left: 12px;
+  bottom: 9px;
+  left: 10px;
+  color: #aaa;
   font-family: monospace;
-  font-size: 11px;
-  color: #fff;
-  text-shadow: 0 1px 5px #000;
+  font-size: 10px;
 }
 
-.ref-info {
+.reference-links {
+  margin-left: 105px;
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.reference-box {
+  padding: 18px;
+  background: #1b1b18;
+  border: 1px solid #46453f;
+  flex: 1;
+  min-width: 220px;
+}
+
+.reference-box small {
+  margin-top: 0;
+}
+
+.empty-cover {
+  margin-left: 105px;
+  min-height: 250px;
+  border: 1px dashed #555;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  margin-top: 25px;
-  gap: 20px;
+  text-align: center;
+  padding: 30px;
 }
 
-.ref-info span {
-  font-size: 12px;
+.empty-cover span {
   color: var(--muted);
-  letter-spacing: 2px;
-}
-
-.ref-info a {
-  color: var(--accent);
-  font-size: 13px;
-  text-decoration: none;
+  font-size: clamp(20px, 4vw, 45px);
+  font-weight: 900;
+  letter-spacing: -.04em;
 }
 
 footer {
@@ -281,7 +302,6 @@ footer {
 @media(max-width:700px) {
   header { padding: 16px 5%; }
   .logo { font-size: 19px; }
-
   nav { gap: 6px; }
 
   nav button {
@@ -302,22 +322,21 @@ footer {
   }
 
   .chapter { padding: 60px 5%; }
+  .visual-hero { padding: 75px 5%; }
 
-  .visual-hero { padding-top: 75px; }
+  .filmstrip,
+  .reference-tags,
+  .reference-links,
+  .empty-cover {
+    margin-left: 0;
+  }
 
   .film-frames {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 
-  .film-frame:nth-child(n+2) {
+  .film-frame:nth-child(3) {
     display: none;
-  }
-}
-
-@media(prefers-reduced-motion:reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after {
-    transition: none !important;
   }
 }
 </style>
@@ -367,17 +386,15 @@ footer {
       <div class="video">
         <iframe
           src="https://www.youtube-nocookie.com/embed/gEen7iZ8ROA"
-          title="Référence vidéo 01"
+          title="Référence 01"
           loading="lazy"
           allowfullscreen>
         </iframe>
 
         <small>RÉFÉRENCE 01</small>
 
-        <a
-          href="https://www.youtube.com/watch?v=gEen7iZ8ROA"
-          target="_blank"
-          rel="noopener noreferrer">
+        <a href="https://www.youtube.com/watch?v=gEen7iZ8ROA"
+           target="_blank" rel="noopener noreferrer">
           Ouvrir sur YouTube ↗
         </a>
       </div>
@@ -385,17 +402,15 @@ footer {
       <div class="video">
         <iframe
           src="https://www.youtube-nocookie.com/embed/pvxQAI62HsU"
-          title="Référence vidéo 02"
+          title="Référence 02"
           loading="lazy"
           allowfullscreen>
         </iframe>
 
         <small>RÉFÉRENCE 02</small>
 
-        <a
-          href="https://www.youtube.com/watch?v=pvxQAI62HsU"
-          target="_blank"
-          rel="noopener noreferrer">
+        <a href="https://www.youtube.com/watch?v=pvxQAI62HsU"
+           target="_blank" rel="noopener noreferrer">
           Ouvrir sur YouTube ↗
         </a>
       </div>
@@ -418,17 +433,15 @@ footer {
       <div class="video">
         <iframe
           src="https://www.youtube-nocookie.com/embed/jo1ikmeLUVE"
-          title="Référence vidéo 03"
+          title="Référence 03"
           loading="lazy"
           allowfullscreen>
         </iframe>
 
         <small>RÉFÉRENCE 03</small>
 
-        <a
-          href="https://www.youtube.com/watch?v=jo1ikmeLUVE"
-          target="_blank"
-          rel="noopener noreferrer">
+        <a href="https://www.youtube.com/watch?v=jo1ikmeLUVE"
+           target="_blank" rel="noopener noreferrer">
           Ouvrir sur YouTube ↗
         </a>
       </div>
@@ -451,17 +464,15 @@ footer {
       <div class="video">
         <iframe
           src="https://www.youtube-nocookie.com/embed/1XzY2ij_vL4"
-          title="Référence vidéo 04"
+          title="Référence 04"
           loading="lazy"
           allowfullscreen>
         </iframe>
 
         <small>RÉFÉRENCE 04</small>
 
-        <a
-          href="https://www.youtube.com/watch?v=1XzY2ij_vL4"
-          target="_blank"
-          rel="noopener noreferrer">
+        <a href="https://www.youtube.com/watch?v=1XzY2ij_vL4"
+           target="_blank" rel="noopener noreferrer">
           Ouvrir sur YouTube ↗
         </a>
       </div>
@@ -482,112 +493,139 @@ footer {
     </span>
 
     <h1>
-      L'IMAGE<br>
-      <em>AVANT TOUT.</em>
+      DIRECTION<br>
+      <em>VISUELLE.</em>
     </h1>
 
   </div>
 
-  <!-- LES SOPRANO -->
+  <!-- PELLICULE STYLE LOOKALIKE -->
 
-  <section class="film-section">
+  <section class="chapter">
 
-    <h2 class="film-title">
-      01 — LES SOPRANO
-    </h2>
+    <div class="chapter-head">
+      <span class="number">01 / 03</span>
+      <h2>PELLICULE STYLE LOOKALIKE.</h2>
+    </div>
+
+    <div class="reference-tags">
+      <span>PRISON BREAK</span>
+      <span>LES SOPRANO</span>
+    </div>
 
     <div class="filmstrip">
 
       <div class="film-frames">
 
         <div class="film-frame">
-          <img
-            src="https://image.tmdb.org/t/p/w1280/u0cS9d9zM7fP5cJqX4q8G5zJwX.jpg"
-            alt="Référence Les Soprano"
-            loading="lazy">
+          <strong>PRISON<br>BREAK</strong>
           <span class="frame-number">FRAME 001</span>
         </div>
 
         <div class="film-frame">
-          <img
-            src="https://image.tmdb.org/t/p/w1280/u0cS9d9zM7fP5cJqX4q8G5zJwX.jpg"
-            alt="Référence Les Soprano"
-            loading="lazy">
+          <strong>LES<br>SOPRANO</strong>
           <span class="frame-number">FRAME 002</span>
         </div>
 
         <div class="film-frame">
-          <img
-            src="https://image.tmdb.org/t/p/w1280/u0cS9d9zM7fP5cJqX4q8G5zJwX.jpg"
-            alt="Référence Les Soprano"
-            loading="lazy">
+          <strong>JAYMEE</strong>
           <span class="frame-number">FRAME 003</span>
         </div>
 
       </div>
+
     </div>
 
-    <div class="ref-info">
-      <span>RÉFÉRENCE CINÉMATOGRAPHIQUE 01</span>
+    <div class="reference-links">
 
-      <a
-        href="https://www.google.com/search?tbm=isch&q=The+Sopranos+cinematography+stills"
-        target="_blank"
-        rel="noopener noreferrer">
-        Voir les images ↗
-      </a>
+      <div class="reference-box">
+        <small>RÉFÉRENCE TIKTOK</small>
+
+        <a class="reference-link"
+           href="https://www.tiktok.com/@arthurabeille/video/7682822408012664096"
+           target="_blank" rel="noopener noreferrer">
+          Voir la vidéo TikTok ↗
+        </a>
+      </div>
+
+      <div class="reference-box">
+        <small>RÉFÉRENCE YOUTUBE</small>
+
+        <a class="reference-link"
+           href="https://www.youtube.com/watch?v=8LuxOYIpu-I"
+           target="_blank" rel="noopener noreferrer">
+          Voir la vidéo YouTube ↗
+        </a>
+      </div>
+
+    </div>
+
+    <div class="videos" style="margin-top:25px">
+
+      <div class="video">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/8LuxOYIpu-I"
+          title="Pellicule Style Lookalike"
+          loading="lazy"
+          allowfullscreen>
+        </iframe>
+
+        <small>PELLICULE STYLE LOOKALIKE</small>
+
+        <a href="https://www.youtube.com/watch?v=8LuxOYIpu-I"
+           target="_blank" rel="noopener noreferrer">
+          Ouvrir sur YouTube ↗
+        </a>
+      </div>
+
     </div>
 
   </section>
 
-  <!-- PRISON BREAK -->
+  <!-- TRANSI COLLAGE -->
 
-  <section class="film-section">
+  <section class="chapter">
 
-    <h2 class="film-title">
-      02 — PRISON BREAK
-    </h2>
-
-    <div class="filmstrip">
-
-      <div class="film-frames">
-
-        <div class="film-frame">
-          <img
-            src="https://image.tmdb.org/t/p/w1280/5E1BhkCgjLBlqx557Z5yzcN0i88.jpg"
-            alt="Référence Prison Break"
-            loading="lazy">
-          <span class="frame-number">FRAME 004</span>
-        </div>
-
-        <div class="film-frame">
-          <img
-            src="https://image.tmdb.org/t/p/w1280/5E1BhkCgjLBlqx557Z5yzcN0i88.jpg"
-            alt="Référence Prison Break"
-            loading="lazy">
-          <span class="frame-number">FRAME 005</span>
-        </div>
-
-        <div class="film-frame">
-          <img
-            src="https://image.tmdb.org/t/p/w1280/5E1BhkCgjLBlqx557Z5yzcN0i88.jpg"
-            alt="Référence Prison Break"
-            loading="lazy">
-          <span class="frame-number">FRAME 006</span>
-        </div>
-
-      </div>
+    <div class="chapter-head">
+      <span class="number">02 / 03</span>
+      <h2>TRANSI COLLAGE.</h2>
     </div>
 
-    <div class="ref-info">
-      <span>RÉFÉRENCE CINÉMATOGRAPHIQUE 02</span>
+    <div class="videos">
 
-      <a
-        href="https://www.google.com/search?tbm=isch&q=Prison+Break+cinematography+stills"
-        target="_blank"
-        rel="noopener noreferrer">
-        Voir les images ↗
-      </a>
+      <div class="video">
+
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/a5wOfaVJjoo"
+          title="Transi Collage"
+          loading="lazy"
+          allowfullscreen>
+        </iframe>
+
+        <small>RÉFÉRENCE TRANSI COLLAGE</small>
+
+        <a href="https://www.youtube.com/watch?v=a5wOfaVJjoo"
+           target="_blank" rel="noopener noreferrer">
+          Ouvrir sur YouTube ↗
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- COVERS -->
+
+  <section class="chapter">
+
+    <div class="chapter-head">
+      <span class="number">03 / 03</span>
+      <h2>COVERS.</h2>
+    </div>
+
+    <div class="empty-cover">
+      <span>NO IDEAS FOR NOW.</span>
     </div>
 
   </section>

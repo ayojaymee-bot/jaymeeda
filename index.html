@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>JAYMEE — UNTITLED</title>
+<title>JAYMEE — Direction Artistique</title>
 
 <style>
 :root {
@@ -14,9 +14,13 @@
   --muted: #99998f;
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   margin: 0;
@@ -24,6 +28,12 @@ body {
   color: var(--fg);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* HEADER */
 
 header {
   position: sticky;
@@ -68,8 +78,17 @@ nav button.active {
   color: #111;
 }
 
-.page { display: none; }
-.page.active { display: block; }
+/* PAGES */
+
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+/* HERO */
 
 .hero {
   min-height: 70vh;
@@ -90,6 +109,8 @@ h1 em {
   color: var(--accent);
   font-style: italic;
 }
+
+/* CHAPITRES */
 
 .chapter {
   padding: 85px 5%;
@@ -116,6 +137,8 @@ h2 {
   margin: 0;
   max-width: 1100px;
 }
+
+/* VIDEOS */
 
 .videos {
   margin-left: 105px;
@@ -157,7 +180,7 @@ small {
   text-decoration: underline;
 }
 
-/* PAGE VISUEL */
+/* VISUEL ET VESTIMENTAIRE */
 
 .visual-hero {
   padding: 110px 5% 90px;
@@ -188,7 +211,7 @@ small {
   letter-spacing: 2px;
 }
 
-/* EFFET PELLICULE */
+/* PELLICULE */
 
 .filmstrip {
   position: relative;
@@ -218,8 +241,13 @@ small {
   opacity: .65;
 }
 
-.filmstrip::before { top: 6px; }
-.filmstrip::after { bottom: 6px; }
+.filmstrip::before {
+  top: 6px;
+}
+
+.filmstrip::after {
+  bottom: 6px;
+}
 
 .film-frames {
   display: grid;
@@ -255,6 +283,8 @@ small {
   font-size: 10px;
 }
 
+/* LIENS REFERENCES */
+
 .reference-links {
   margin-left: 105px;
   display: flex;
@@ -274,6 +304,8 @@ small {
   margin-top: 0;
 }
 
+/* ESPACES VIDES */
+
 .empty-cover {
   margin-left: 105px;
   min-height: 250px;
@@ -292,6 +324,8 @@ small {
   letter-spacing: -.04em;
 }
 
+/* FOOTER */
+
 footer {
   padding: 35px 5%;
   color: #aaa;
@@ -299,18 +333,37 @@ footer {
   border-top: 1px solid #444;
 }
 
-@media(max-width:700px) {
-  header { padding: 16px 5%; }
-  .logo { font-size: 19px; }
-  nav { gap: 6px; }
+/* MOBILE */
 
-  nav button {
-    padding: 10px 12px;
-    font-size: 10px;
-    letter-spacing: 1px;
+@media(max-width:700px) {
+
+  header {
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px 5%;
   }
 
-  .hero { min-height: 60vh; }
+  .logo {
+    font-size: 19px;
+  }
+
+  nav {
+    width: 100%;
+    display: flex;
+    gap: 6px;
+  }
+
+  nav button {
+    flex: 1;
+    min-width: 0;
+    padding: 12px 5px;
+    font-size: 10px;
+    letter-spacing: 0;
+  }
+
+  .hero {
+    min-height: 60vh;
+  }
 
   .chapter-head {
     grid-template-columns: 1fr;
@@ -321,8 +374,13 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  .chapter { padding: 60px 5%; }
-  .visual-hero { padding: 75px 5%; }
+  .chapter {
+    padding: 60px 5%;
+  }
+
+  .visual-hero {
+    padding: 75px 5%;
+  }
 
   .filmstrip,
   .reference-tags,
@@ -338,17 +396,29 @@ footer {
   .film-frame:nth-child(3) {
     display: none;
   }
+
+}
+
+@media(prefers-reduced-motion:reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
+
 <header>
+
   <div class="logo">JAYMEE®</div>
 
-  <nav>
-    <button class="active"
+  <nav aria-label="Navigation principale">
+
+    <button
+      class="active"
       onclick="showPage('contenu',this)">
       CONTENU
     </button>
@@ -357,24 +427,38 @@ footer {
       onclick="showPage('visuel',this)">
       VISUEL
     </button>
+
+    <button
+      onclick="showPage('vestimentaire',this)">
+      VESTIMENTAIRE
+    </button>
+
   </nav>
+
 </header>
 
+<!-- ======================= -->
 <!-- PAGE CONTENU -->
+<!-- ======================= -->
 
 <main id="contenu" class="page active">
 
   <div class="hero">
+
     <h1>
       LE SON DIT <em>OUI.</em><br>
       L’IMAGE DIT <em>NON.</em>
     </h1>
+
   </div>
+
+  <!-- AXE 01 -->
 
   <section class="chapter">
 
     <div class="chapter-head">
       <span class="number">01 / 03</span>
+
       <h2>
         QUAND LE CLIP NE VA PAS
         AVEC LA MUSIQUE.
@@ -384,44 +468,56 @@ footer {
     <div class="videos">
 
       <div class="video">
+
         <iframe
           src="https://www.youtube-nocookie.com/embed/gEen7iZ8ROA"
-          title="Référence 01"
+          title="Référence vidéo 01"
           loading="lazy"
           allowfullscreen>
         </iframe>
 
         <small>RÉFÉRENCE 01</small>
 
-        <a href="https://www.youtube.com/watch?v=gEen7iZ8ROA"
-           target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://www.youtube.com/watch?v=gEen7iZ8ROA"
+          target="_blank"
+          rel="noopener noreferrer">
           Ouvrir sur YouTube ↗
         </a>
+
       </div>
 
       <div class="video">
+
         <iframe
           src="https://www.youtube-nocookie.com/embed/pvxQAI62HsU"
-          title="Référence 02"
+          title="Référence vidéo 02"
           loading="lazy"
           allowfullscreen>
         </iframe>
 
         <small>RÉFÉRENCE 02</small>
 
-        <a href="https://www.youtube.com/watch?v=pvxQAI62HsU"
-           target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://www.youtube.com/watch?v=pvxQAI62HsU"
+          target="_blank"
+          rel="noopener noreferrer">
           Ouvrir sur YouTube ↗
         </a>
+
       </div>
 
     </div>
+
   </section>
+
+  <!-- AXE 02 -->
 
   <section class="chapter">
 
     <div class="chapter-head">
       <span class="number">02 / 03</span>
+
       <h2>
         LE CONTRASTE VOCAL
         AVEC L'IMAGE.
@@ -431,28 +527,36 @@ footer {
     <div class="videos">
 
       <div class="video">
+
         <iframe
           src="https://www.youtube-nocookie.com/embed/jo1ikmeLUVE"
-          title="Référence 03"
+          title="Référence vidéo 03"
           loading="lazy"
           allowfullscreen>
         </iframe>
 
         <small>RÉFÉRENCE 03</small>
 
-        <a href="https://www.youtube.com/watch?v=jo1ikmeLUVE"
-           target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://www.youtube.com/watch?v=jo1ikmeLUVE"
+          target="_blank"
+          rel="noopener noreferrer">
           Ouvrir sur YouTube ↗
         </a>
+
       </div>
 
     </div>
+
   </section>
+
+  <!-- AXE 03 -->
 
   <section class="chapter">
 
     <div class="chapter-head">
       <span class="number">03 / 03</span>
+
       <h2>
         LE CONTRASTE DU PERSONNAGE
         AVEC LE CONTEXTE.
@@ -462,27 +566,34 @@ footer {
     <div class="videos">
 
       <div class="video">
+
         <iframe
           src="https://www.youtube-nocookie.com/embed/1XzY2ij_vL4"
-          title="Référence 04"
+          title="Référence vidéo 04"
           loading="lazy"
           allowfullscreen>
         </iframe>
 
         <small>RÉFÉRENCE 04</small>
 
-        <a href="https://www.youtube.com/watch?v=1XzY2ij_vL4"
-           target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://www.youtube.com/watch?v=1XzY2ij_vL4"
+          target="_blank"
+          rel="noopener noreferrer">
           Ouvrir sur YouTube ↗
         </a>
+
       </div>
 
     </div>
+
   </section>
 
 </main>
 
+<!-- ======================= -->
 <!-- PAGE VISUEL -->
+<!-- ======================= -->
 
 <main id="visuel" class="page">
 
@@ -505,7 +616,10 @@ footer {
 
     <div class="chapter-head">
       <span class="number">01 / 03</span>
-      <h2>PELLICULE STYLE LOOKALIKE.</h2>
+
+      <h2>
+        PELLICULE STYLE LOOKALIKE.
+      </h2>
     </div>
 
     <div class="reference-tags">
@@ -518,18 +632,28 @@ footer {
       <div class="film-frames">
 
         <div class="film-frame">
-          <strong>PRISON<br>BREAK</strong>
-          <span class="frame-number">FRAME 001</span>
+          <strong>
+            PRISON<br>BREAK
+          </strong>
+          <span class="frame-number">
+            FRAME 001
+          </span>
         </div>
 
         <div class="film-frame">
-          <strong>LES<br>SOPRANO</strong>
-          <span class="frame-number">FRAME 002</span>
+          <strong>
+            LES<br>SOPRANO
+          </strong>
+          <span class="frame-number">
+            FRAME 002
+          </span>
         </div>
 
         <div class="film-frame">
           <strong>JAYMEE</strong>
-          <span class="frame-number">FRAME 003</span>
+          <span class="frame-number">
+            FRAME 003
+          </span>
         </div>
 
       </div>
@@ -539,23 +663,31 @@ footer {
     <div class="reference-links">
 
       <div class="reference-box">
+
         <small>RÉFÉRENCE TIKTOK</small>
 
-        <a class="reference-link"
-           href="https://www.tiktok.com/@arthurabeille/video/7682822408012664096"
-           target="_blank" rel="noopener noreferrer">
+        <a
+          class="reference-link"
+          href="https://www.tiktok.com/@arthurabeille/video/7682822408012664096"
+          target="_blank"
+          rel="noopener noreferrer">
           Voir la vidéo TikTok ↗
         </a>
+
       </div>
 
       <div class="reference-box">
+
         <small>RÉFÉRENCE YOUTUBE</small>
 
-        <a class="reference-link"
-           href="https://www.youtube.com/watch?v=8LuxOYIpu-I"
-           target="_blank" rel="noopener noreferrer">
+        <a
+          class="reference-link"
+          href="https://www.youtube.com/watch?v=8LuxOYIpu-I"
+          target="_blank"
+          rel="noopener noreferrer">
           Voir la vidéo YouTube ↗
         </a>
+
       </div>
 
     </div>
@@ -563,6 +695,7 @@ footer {
     <div class="videos" style="margin-top:25px">
 
       <div class="video">
+
         <iframe
           src="https://www.youtube-nocookie.com/embed/8LuxOYIpu-I"
           title="Pellicule Style Lookalike"
@@ -570,12 +703,17 @@ footer {
           allowfullscreen>
         </iframe>
 
-        <small>PELLICULE STYLE LOOKALIKE</small>
+        <small>
+          PELLICULE STYLE LOOKALIKE
+        </small>
 
-        <a href="https://www.youtube.com/watch?v=8LuxOYIpu-I"
-           target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://www.youtube.com/watch?v=8LuxOYIpu-I"
+          target="_blank"
+          rel="noopener noreferrer">
           Ouvrir sur YouTube ↗
         </a>
+
       </div>
 
     </div>
@@ -588,6 +726,7 @@ footer {
 
     <div class="chapter-head">
       <span class="number">02 / 03</span>
+
       <h2>TRANSI COLLAGE.</h2>
     </div>
 
@@ -602,10 +741,14 @@ footer {
           allowfullscreen>
         </iframe>
 
-        <small>RÉFÉRENCE TRANSI COLLAGE</small>
+        <small>
+          RÉFÉRENCE TRANSI COLLAGE
+        </small>
 
-        <a href="https://www.youtube.com/watch?v=a5wOfaVJjoo"
-           target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://www.youtube.com/watch?v=a5wOfaVJjoo"
+          target="_blank"
+          rel="noopener noreferrer">
           Ouvrir sur YouTube ↗
         </a>
 
@@ -621,6 +764,7 @@ footer {
 
     <div class="chapter-head">
       <span class="number">03 / 03</span>
+
       <h2>COVERS.</h2>
     </div>
 
@@ -632,11 +776,55 @@ footer {
 
 </main>
 
+<!-- ======================= -->
+<!-- PAGE VESTIMENTAIRE -->
+<!-- ======================= -->
+
+<main id="vestimentaire" class="page">
+
+  <div class="visual-hero">
+
+    <span class="visual-intro">
+      JAYMEE / RÉFÉRENCES VESTIMENTAIRES
+    </span>
+
+    <h1>
+      DIRECTION<br>
+      <em>VESTIMENTAIRE.</em>
+    </h1>
+
+  </div>
+
+  <section class="chapter">
+
+    <div class="chapter-head">
+
+      <span class="number">
+        01 / 01
+      </span>
+
+      <h2>VESTIMENTAIRE.</h2>
+
+    </div>
+
+    <div class="empty-cover">
+      <span>NO IDEAS FOR NOW.</span>
+    </div>
+
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+
 <footer>
   JAYMEE — DIRECTION ARTISTIQUE © 2026
 </footer>
 
+<!-- JAVASCRIPT -->
+
 <script>
+
 function showPage(pageId, button) {
 
   document.querySelectorAll('.page')
@@ -660,6 +848,7 @@ function showPage(pageId, button) {
   });
 
 }
+
 </script>
 
 </body>
